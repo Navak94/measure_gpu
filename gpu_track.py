@@ -80,13 +80,13 @@ def print_gpu_memory_every_5secs():
     
 
     try:
-        if os.path.isfile("Output.csv"):
-            text_file = open("Output.csv", "a")
+        if os.path.isfile("gpu_data.csv"):
+            text_file = open("gpu_data.csv", "a")
             text_file.write(str(gpu_temperature)+","+ str(utilization_gpu_nvidia)+","+ str(utilization_memory_nvidia)+","+ str(calculated_utilization)+ ","+ timestamp_from_nvidia + "\n")
             text_file.close()
-        if os.path.isfile("Output.csv")== False:
-            text_file = open("Output.csv", "a")
-            text_file.write("GPU temperature , Nvidia's measured GPU utilization, Nvidia's Measured memory utilization, my calculated utilization, timestamp\n")
+        if os.path.isfile("gpu_data.csv")== False:
+            text_file = open("gpu_data.csv", "a")
+            text_file.write("GPU temperature in celcius , Nvidia's measured GPU utilization, Nvidia's Measured memory utilization, my calculated utilization, timestamp\n")
             text_file.close()
     except AttributeError:
         pass
